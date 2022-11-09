@@ -6,7 +6,7 @@ export default function Rezept({ rezept, dispatch }){
             <h1>{rezept.name}</h1>
             <img src={rezept.picture} alt="" />
             {rezept.steps.map((step, index) => {
-                return <Step step={step} keys={index} />
+                return <Step step={step} index={index} />
             })}
       
         </>
