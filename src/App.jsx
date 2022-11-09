@@ -10,17 +10,18 @@ export const ACTIONS = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "checkStep":
-      state = {
-        ...state,
-        inputEmail: action.value
-      }
-      break;
+    case ACTIONS.TOGGLE_STEP:
+      return todos.map(todo => {
+        if(todo.id === action.payload.id) {
+          return { ...todo, complete: !todo.complete }
+        }
+        return todo
+      })
       default:
         console.warn("Unknown action")
       }
       return state     
-    }
+}
     
 function App() {
   const [ state, dispatch ] = useReducer(reducer, Rezepte)
